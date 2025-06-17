@@ -1,0 +1,835 @@
+/* --- 1. Global Styles & CSS Variables --- */
+:root {
+    --primary-color: #007bff;
+    --dark-color: #222;
+    --light-color: #f4f4f4;
+    --text-color: #333;
+    --navbar-height: 70px;
+}
+html {
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ background-color: #312068;
+    color: var(--text-color);
+    
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* --- 2. Navbar Styling (Mobile First) --- */
+.main-header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--navbar-height);
+    padding: 0 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.lang-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.lang-btn:hover {
+    background-color: #0056b3;
+}
+
+.nav-menu {
+    position: fixed;
+    top: var(--navbar-height);
+    right: -100%; /* يبدأ من خارج الشاشة */
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    background-color: #fff;
+    box-shadow: -5px 0 10px rgba(0,0,0,0.1);
+    transition: right 0.4s ease-in-out;
+}
+
+/* عند إضافة كلاس active بالجافاسكريبت */
+.nav-menu.active {
+    right: 0;
+}
+
+/* RTL Support for mobile menu */
+html[dir="rtl"] .nav-menu {
+    right: auto;
+    left: -100%;
+    transition: left 0.4s ease-in-out;
+}
+html[dir="rtl"] .nav-menu.active {
+    left: 0;
+}
+
+
+.nav-item {
+    margin: 1.5rem 0;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--dark-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- 3. Desktop View (Media Query) --- */
+@media screen and (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-menu {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        box-shadow: none;
+        padding-top: 0;
+        transition: none;
+    }
+
+    .nav-item {
+        margin: 0;
+    }
+
+    .nav-link {
+        padding: 0 1rem;
+        font-size: 1rem;
+    }
+
+    /* RTL Support for Desktop menu */
+    html[dir="rtl"] .nav-link {
+        padding: 0 1rem;
+    }
+}
+/* --- 4. Hero Section Styling --- */
+.hero-section {
+    background-color: rgba(255, 255, 255, 0.176);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* نجعل ارتفاعه يملأ الشاشة المتبقية تحت الـ Navbar */
+    min-height: calc(100vh - var(--navbar-height)); 
+    padding: 2rem;
+    margin: 60px;
+    border-radius: 19px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 3rem; /* حجم الخط للهاتف */
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: white;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%; /* لجعلها دائرية */
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    
+  
+    transform: translateY(-5px); /* تأثير الرفع عند المرور */
+}
+
+/* تعديل حجم الخطوط للشاشات الأكبر */
+@media screen and (min-width: 768px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+    .hero-subtitle {
+        font-size: 1.8rem;
+    }
+}
+/* --- 5. About Section Styling --- */
+.about-section {
+    padding: 4rem 2rem;
+    background-color: #fff; /* لون مختلف لتمييز القسم */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--dark-color);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column; /* للهاتف: صورة فوق النص */
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-image img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover; /* لضمان عدم تشوه الصورة */
+    border-radius: 50%; /* يجعل الصورة دائرية */
+    border: 5px solid var(--primary-color);
+}
+
+.about-text {
+    text-align: center;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+
+/* Layout for Desktop */
+@media screen and (min-width: 768px) {
+    .about-content {
+        flex-direction: row; /* للحاسوب: صورة بجانب النص */
+        gap: 4rem;
+    }
+
+    .about-image {
+        flex-basis: 30%; /* عرض الصورة 30% */
+    }
+
+    .about-text {
+        flex-basis: 70%; /* عرض النص 70% */
+        text-align: left; /* محاذاة النص لليسار */
+    }
+
+    /* RTL support for desktop text alignment */
+    html[dir="rtl"] .about-text {
+        text-align: right;
+    }
+}
+/* --- 6. Services Section Styling --- */
+.services-section {
+    padding: 4rem 2rem;
+    background-color: var(--light-color); /* نفس لون خلفية الصفحة */
+}
+
+.services-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* لجعل كل البطاقات بنفس الارتفاع */
+    gap: 2rem;
+    flex-wrap: wrap; /* للسماح للبطاقات بالنزول لسطر جديد على الشاشات الصغيرة */
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 2.5rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    flex-basis: 320px; /* العرض الأساسي لكل بطاقة */
+    flex-grow: 1; /* السماح للبطاقة بالنمو لملء المساحة */
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+/* --- New Section: Pricing Styling --- */
+.pricing-section {
+    padding: 4rem 2rem;
+    background-color: #fff;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.pricing-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.plan-price {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.plan-description {
+    font-size: 0.95rem;
+    color: #888;
+    min-height: 40px;
+    margin-bottom: 2rem;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    text-align: left;
+    flex-grow: 1; /* لجعل القائمة تملأ المساحة المتاحة */
+}
+
+html[dir="rtl"] .plan-features {
+    text-align: right;
+}
+
+.plan-features li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+html[dir="rtl"] .plan-features li {
+    padding-left: 0;
+    padding-right: 2rem;
+}
+
+/* أيقونة الصح الخضراء */
+.plan-features li::before {
+    content: '\f00c'; /* أيقونة الصح من Font Awesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #28a745;
+    position: absolute;
+    left: 0;
+}
+html[dir="rtl"] .plan-features li::before {
+    left: auto;
+    right: 0;
+}
+
+/* تنسيق الميزات غير المضمنة */
+.plan-features li.dimmed {
+    color: #aaa;
+    text-decoration: line-through;
+}
+.plan-features li.dimmed::before {
+    content: '\f00d'; /* أيقونة الخطأ */
+    color: #aaa;
+}
+
+.pricing-card .btn {
+    margin-top: auto; /* لدفع الزر إلى أسفل البطاقة دائمًا */
+}
+
+.btn.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.btn.btn-outline:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* تنسيقات البطاقة المميزة */
+.pricing-card.highlighted {
+    transform: scale(1.05);
+    border: 2px solid var(--primary-color);
+}
+.pricing-card.highlighted:hover {
+    transform: scale(1.1);
+}
+
+.highlight-ribbon {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+
+
+
+/* --- 8. Contact Section Styling --- */
+.contact-section {
+    padding: 4rem 2rem;
+    background-color: var(--light-color);
+}
+
+#contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#contact-form .btn {
+    width: 100%;
+    font-size: 1.1rem;
+    border: none;
+}
+/* --- 9. Footer Styling --- */
+
+
+/* --- Back to Top Button --- */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #0056b3;
+    transform: translateY(-5px);
+}
+
+/* RTL Support for Back to Top Button */
+html[dir="rtl"] .back-to-top {
+    right: auto;
+    left: 25px;
+}
+/* --- 10. Blog Page & Article Styling --- */
+
+/* أ. تنسيقات لصفحة المدونة الرئيسية (blog.html) */
+.blog-main-content {
+    padding: 4rem 2rem;
+    background-color: var(--light-color);
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin: -2.5rem auto 3rem auto; /* لرفعه قليلاً تحت العنوان الرئيسي */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+.blog-grid {
+    display: grid;
+    /* سطر ذكي يقوم بإنشاء أعمدة بعرض 320 بكسل على الأقل،
+       ويقوم بملء المساحة المتاحة، ويتكيف تلقائيًا مع حجم الشاشة */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem; /* المسافة بين البطاقات */
+}
+
+/* ب. تنسيقات بطاقة المقال (في blog.html) */
+.blog-post-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* يضمن عدم تشوه الصورة */
+}
+
+.post-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* لجعل هذا الجزء يملأ المساحة المتبقية */
+}
+
+.post-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.post-title {
+    font-size: 1.4rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.post-content .btn {
+    width: fit-content; /* جعل الزر بعرض المحتوى فقط */
+    align-self: flex-start; /* محاذاة الزر لبداية السطر */
+}
+
+/* RTL support for the button */
+html[dir="rtl"] .post-content .btn {
+    align-self: flex-end;
+}
+
+
+/* ج. تنسيقات لصفحة المقال الكامل (مثل article-1.html) */
+.blog-post-full {
+    max-width: 800px; /* تحديد عرض أقصى للنص لتسهيل القراءة */
+    margin: 0 auto; /* توسيط حاوية المقال */
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.article-full-title {
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.blog-post-full .post-meta {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.blog-post-full p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.5rem;
+margin-bottom : 1rem;} 
+/* --- 9. NEW Professional Footer Styling --- */
+/* --- 9. NEW ADVANCED FOOTER STYLING --- */
+.site-footer-v2 {
+    background-color: #312068; /* اللون الذي طلبته */
+    color: #c5c5d2; /* لون نص فاتح يتناسب مع الخلفية */
+    font-size: 0.95rem;
+}
+
+/* Call to Action Section */
+.footer-cta {
+    background-color: rgba(255, 255, 255, 0.05); /* طبقة شفافة لتمييز الجزء العلوي */
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+.footer-cta h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+.footer-cta p {
+    margin-bottom: 1.5rem;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn.btn-light {
+    background-color: #fff;
+    color: #312068;
+    font-weight: bold;
+}
+.btn.btn-light:hover {
+    background-color: #eee;
+}
+
+/* Main Footer Area */
+.footer-main {
+    padding: 4rem 1.5rem;
+}
+
+.footer-grid {
+    display: grid;
+    /* شبكة متجاوبة تتكيف مع حجم الشاشة */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+}
+
+.footer-title {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+.footer-column p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: #c5c5d2;
+    transition: color 0.3s, padding-left 0.3s;
+}
+html[dir="rtl"] .footer-links a {
+    transition: color 0.3s, padding-right 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+html[dir="rtl"] .footer-links a:hover {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+
+/* Bottom Bar */
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 1.5rem 1.5rem;
+}
+
+.bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* للسماح بالنزول في الشاشات الصغيرة */
+    gap: 1rem;
+}
+
+.copyright-text {
+    margin: 0;
+}
+
+.footer-social-v2 a {
+    color: #c5c5d2;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    transition: color 0.3s, transform 0.3s;
+}
+html[dir="rtl"] .footer-social-v2 a {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+.footer-social-v2 a:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
