@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandt dzeri</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="#" class="nav-logo" data-key="logo">BrandtDZ</a>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-key="navHome">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-key="navAbout">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link" data-key="navServices">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-key="navContact">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="lang-toggle-btn" class="lang-btn">عربي</button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title" data-key="heroTitle">Hello, I am Yassine</h1>
+                <p class="hero-subtitle" data-key="heroSubtitle">Full Stack Developer</p>
+                <p class="hero-description" data-key="heroDescription">I build modern, responsive web apps</p>
+
+                <ul class="social-links">
+                    <li><a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li>
+                    <li><a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                    <li><a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title" data-key="aboutTitle">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="images/Personal Logo.jpg" alt="A photo of Yassine">
+                    </div>
+                    <div class="about-text">
+                        <p data-key="aboutParagraph1">
+                            I am a passionate Full Stack Developer from Algeria, with a love for creating dynamic and intuitive web applications. My journey in programming started with a simple "Hello, World!" and has grown into a core part of who I am.
+                        </p>
+                        <p data-key="aboutParagraph2">
+                            I thrive on solving problems and continuously learning new technologies to bring ideas to life. Let's build something amazing together!
+                        </p>
+                        <a href="cv/cv.jpg" class="btn" download data-key="cvButton">Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title" data-key="servicesTitle">My Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-mobile-screen-button"></i>
+                        <h3 class="card-title" data-key="mobileTitle">Mobile App Development</h3>
+                        <p class="card-description" data-key="mobileDesc">
+                            I design and build intuitive and high-performance applications for Android and iOS devices.
+                        </p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3 class="card-title" data-key="desktopTitle">Desktop Software</h3>
+                        <p class="card-description" data-key="desktopDesc">
+                            I create custom software solutions for Windows and macOS to automate tasks and improve efficiency.
+                        </p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-globe"></i>
+                        <h3 class="card-title" data-key="webTitle">Website Development</h3>
+                        <p class="card-description" data-key="webDesc">
+                            From landing pages to complex web apps, I build fast, responsive, and modern websites.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+<section id="pricing" class="pricing-section">
+    <div class="container">
+        <h2 class="section-title" data-key="pricingTitle">Pricing Plans</h2>
+        <p class="section-subtitle" data-key="pricingSubtitle">Choose a plan that fits your needs. Prices are illustrative and can be adapted to your project.</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="plan-name" data-key="plan1Name">Basic Site</h3>
+                <p class="plan-price" data-key="plan1Price">Starts from 40,000 DZD</p>
+                <p class="plan-description" data-key="plan1Desc">Ideal for personal portfolios or small business presence.</p>
+                <ul class="plan-features">
+                    <li data-key="plan1Feat1">Up to 3 Pages</li>
+                    <li data-key="plan1Feat2">Responsive Design</li>
+                    <li data-key="plan1Feat3">Contact Form</li>
+                    <li class="dimmed" data-key="plan1Feat4">Basic SEO</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline" data-key="choosePlanBtn">Choose Plan</a>
+            </div>
+
+            <div class="pricing-card highlighted">
+                <div class="highlight-ribbon" data-key="popularRibbon">Most Popular</div>
+                <h3 class="plan-name" data-key="plan2Name">Pro Site</h3>
+                <p class="plan-price" data-key="plan2Price">Starts from 100,000 DZD</p>
+                <p class="plan-description" data-key="plan2Desc">Perfect for growing businesses and professional services.</p>
+                <ul class="plan-features">
+                    <li data-key="plan2Feat1">Up to 10 Pages</li>
+                    <li data-key="plan2Feat2">Custom Design</li>
+                    <li data-key="plan2Feat3">Content Management (CMS)</li>
+                    <li data-key="plan2Feat4">Advanced SEO</li>
+                </ul>
+                <a href="#contact" class="btn" data-key="choosePlanBtn">Choose Plan</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3 class="plan-name" data-key="plan3Name">Custom App / E-commerce</h3>
+                <p class="plan-price" data-key="plan3Price">Let's Talk</p>
+                <p class="plan-description" data-key="plan3Desc">For online stores and complex web applications.</p>
+                <ul class="plan-features">
+                    <li data-key="plan3Feat1">Full Custom Solution</li>
+                    <li data-key="plan3Feat2">Payment Integration</li>
+                    <li data-key="plan3Feat3">Advanced Features</li>
+                    <li data-key="plan3Feat4">Dedicated Support</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline" data-key="contactUsBtn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+       
+
+    </main>
+    <section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title" data-key="contactTitle">Contact Me</h2>
+        
+        <form id="contact-form" action="https://formspree.io/f/YourUniqueID" method="POST">
+            <div class="form-group">
+                <label for="name" data-key="formName">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email" data-key="formEmail">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message" data-key="formMessage">Message</label>
+                <textarea id="message" name="message" rows="7" required></textarea>
+            </div>
+            <button type="submit" class="btn" data-key="sendButton">Send Message</button>
+        </form>
+    </div>
+</section>
+<footer class="site-footer-v2">
+    <div class="footer-cta">
+        <div class="container">
+            <h2 data-key="footerCtaTitle">Start a Project?</h2>
+            <p data-key="footerCtaSubtitle">Interested in working together? We should queue up a time to chat.</p>
+            <a href="#contact" class="btn btn-light" data-key="footerCtaButton">Let's Do This</a>
+        </div>
+    </div>
+
+    <div class="footer-main">
+        <div class="container footer-grid">
+            <div class="footer-column">
+                <h3 class="footer-title" data-key="logo">BrandtDZ</h3>
+                <p data-key="footerAboutText">
+                    A passionate developer building modern and responsive web applications.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title" data-key="exploreTitle">Explore</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title" data-key="myWorkTitle">My Work</h3>
+                <ul class="footer-links">
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="cv/cv.jpg" download>Download CV</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title" data-key="contactTitle">Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:your-email@example.com" data-key="emailLink">your-email@example.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container bottom-content">
+            <p class="copyright-text" data-key="copyright">
+                &copy; <span id="current-year"></span> Yassine BrandtDZ. All Rights Reserved.
+            </p>
+            <div class="footer-social-v2">
+                <a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<a href="#" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
